@@ -1,5 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Acerca } from './components/Acerca';
+import { Contacto } from './components/Contacto';
+import { Home } from './components/Home';
 
 export const RouterV5 = () => {
     return (
@@ -26,13 +29,13 @@ export const RouterV5 = () => {
 
                 <Switch>
                     <Route exact path='/'>
-                        <h3>Home</h3>
+                        <Home />
                     </Route>
                     <Route exact path='/acerca'>
-                        <h3>Acerca</h3>
+                        <Acerca />
                     </Route>
                     <Route exact path='/contacto'>
-                        <h3>contacto</h3>
+                        <Contacto />
                     </Route>
                 </Switch>
             </Router>
