@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    NavLink,
+} from 'react-router-dom';
 import { Acerca } from './components/Acerca';
 import { Contacto } from './components/Contacto';
 import { Home } from './components/Home';
@@ -11,18 +16,30 @@ export const RouterV5 = () => {
                 <div className='container'>
                     <nav className='navbar navbar-dark bg-dark'>
                         <div className='container-fluid'>
-                            <Link className='navbar-brand' to='/'>
+                            <NavLink
+                                activeClassName='text-info'
+                                className='navbar-brand'
+                                exact
+                                to='/'
+                            >
                                 Home
-                            </Link>
-                            <Link className='navbar-brand' to='/acerca'>
-                                Acerca
-                            </Link>
-                            <Link
-                                className='navbar-brand me-auto'
+                            </NavLink>
+                            <NavLink
+                                activeClassName='text-info'
+                                className='navbar-brand'
+                                exact
                                 to='/contacto'
                             >
                                 Contacto
-                            </Link>
+                            </NavLink>
+                            <NavLink
+                                activeClassName='text-info'
+                                className='navbar-brand  me-auto'
+                                exact
+                                to='/acerca'
+                            >
+                                Acerca
+                            </NavLink>
                         </div>
                     </nav>
                 </div>
@@ -31,11 +48,11 @@ export const RouterV5 = () => {
                     <Route exact path='/'>
                         <Home />
                     </Route>
-                    <Route exact path='/acerca'>
-                        <Acerca />
-                    </Route>
                     <Route exact path='/contacto'>
                         <Contacto />
+                    </Route>
+                    <Route exact path='/acerca'>
+                        <Acerca />
                     </Route>
                 </Switch>
             </Router>
