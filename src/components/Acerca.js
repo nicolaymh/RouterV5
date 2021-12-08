@@ -1,13 +1,11 @@
 import React from 'react';
-import { useHistory } from 'react-router';
+import { useLocation } from 'react-router';
 
 export const Acerca = () => {
-    let history = useHistory();
+    let history = useLocation();
 
     const handleGoHome = () => {
         console.log(history);
-
-        history.replace('/contacto');
     };
 
     return (
