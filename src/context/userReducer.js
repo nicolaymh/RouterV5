@@ -1,7 +1,7 @@
 import React from 'react';
 import { types } from '../helpers/types';
 
-export const userReducer = (state = {}, action) => {
+export const userReducer = (state, action) => {
     switch (action.type) {
         case action.types:
             return {

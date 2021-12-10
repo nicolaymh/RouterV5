@@ -1,8 +1,13 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 
-export const PrivateRouter = ({ component: Component, ...rest }) => {
-    console.log(rest);
-
-    return <Route {...rest} />;
+export const PrivateRouter = ({ component: Component, authUser, ...rest }) => {
+    return (
+        <Route
+            {...rest}
+            component={(props) =>
+                authUser.logged ? <Component {...props} /> : <Redirect to='/' />
+            }
+        />
+    );
 };
