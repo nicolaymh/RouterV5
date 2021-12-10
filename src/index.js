@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { RouterV5 } from './RouterV5';
+import { App } from './App';
 
-ReactDOM.render(<RouterV5 />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
