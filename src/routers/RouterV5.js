@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import { Dashboard } from '../components/Dashboard';
+import { DashboardRoutes } from './DashboardRoutes';
 import Login from '../components/Login';
 import { AuthContext } from '../context/Context';
 import { PrivateRouter } from './PrivateRouter';
@@ -14,16 +14,14 @@ const RouterV5 = () => {
             <Router>
                 <Switch>
                     <PublicRouter
-                        exact
-                        path='/'
+                        path='/login'
                         component={Login}
                         authUser={user}
                     />
 
                     <PrivateRouter
-                        exact
-                        path='/dashboard'
-                        component={Dashboard}
+                        path='/'
+                        component={DashboardRoutes}
                         authUser={user}
                     />
                 </Switch>

@@ -21,7 +21,7 @@ const Login = () => {
         if (!name.trim().length) {
             return setStateAlert(true);
         } else {
-            setStateAlert(!stateAlert);
+            setStateAlert(false);
             dispatch({ type: types.login, payload: { name: name } });
         }
     };

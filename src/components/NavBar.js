@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import { AuthContext } from '../context/Context';
 import { types } from '../helpers/types';
 
@@ -9,7 +9,7 @@ export const NavBar = () => {
     const history = useHistory();
 
     const handleLogout = () => {
-        history.replace('/dashboard');
+        history.replace('/');
 
         dispatch({
             type: types.logout,
@@ -17,24 +17,41 @@ export const NavBar = () => {
     };
 
     return (
-        <div className='container'>
-            <nav className='navbar navbar-dark bg-dark'>
-                <div className='container'>
-                    <Link className='navbar-brand' to='/'>
+        <nav className='navbar navbar-expand navbar-dark bg-dark'>
+            <div className='container'>
+                <div className='navbar-nav'>
+                    <Link className='navbar-brand m-auto p-2' to='/segundo'>
                         Home
                     </Link>
+                    <NavLink
+                        activeClassName='text-info fs-5'
+                        className='nav-item nav-link m-auto px-2'
+                        exact
+                        to='/primero'
+                    >
+                        Marvel
+                    </NavLink>
 
-                    <div className='d-flex align-items-center text-info'>
-                        <h4 className='me-2 m-auto'>{user.name}</h4>
-                        <button
-                            onClick={handleLogout}
-                            className='btn btn-outline-primary text-light border'
-                        >
-                            Log-Out
-                        </button>
-                    </div>
+                    <NavLink
+                        activeClassName='text-info fs-5'
+                        className='nav-item nav-link m-auto px-2'
+                        exact
+                        to='/segundo'
+                    >
+                        DC
+                    </NavLink>
                 </div>
-            </nav>
-        </div>
+
+                <div className='d-flex align-items-center text-info'>
+                    <h6 className='me-2 m-auto'>{user.name}</h6>
+                    <button
+                        onClick={handleLogout}
+                        className='btn btn-outline-primary text-light border'
+                    >
+                        Log-Out
+                    </button>
+                </div>
+            </div>
+        </nav>
     );
 };

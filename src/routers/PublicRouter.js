@@ -12,7 +12,7 @@ export const PublicRouter = ({ component: Component, authUser, ...rest }) => {
                 !authUser.logged ? (
                     <Component {...props} />
                 ) : (
-                    <Redirect to='/dashboard' />
+                    <Redirect to='/' />
                 )
             }
         />
