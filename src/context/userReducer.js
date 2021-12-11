@@ -4,6 +4,7 @@ export const userReducer = (state, action) => {
     switch (action.type) {
         case types.login:
             return {
+                ...action.payload,
                 logged: true,
             };
 
