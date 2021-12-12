@@ -29,7 +29,7 @@ export const NavBar = () => {
                         exact
                         to='/primero'
                     >
-                        Marvel
+                        Primero
                     </NavLink>
 
                     <NavLink
@@ -38,7 +38,7 @@ export const NavBar = () => {
                         exact
                         to='/segundo'
                     >
-                        DC
+                        Segundo
                     </NavLink>
                 </div>
 
