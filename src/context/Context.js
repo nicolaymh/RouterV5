@@ -1,40 +1,32 @@
-import axios from 'axios';
 import React, { createContext, useEffect, useReducer, useState } from 'react';
+import { axiosGet } from '../helpers/axiosGet';
 import { init } from '../helpers/init';
 import { userReducer } from './userReducer';
 
 const AuthContext = createContext();
 
-async function getProducts() {
-    try {
-        const response = await axios({
-            url: 'https://breakingbadapi.com/api/characters',
-            method: 'GET',
-        });
-
-        return response;
-    } catch (e) {
-        console.log(e);
-    }
-}
-
 const AuthProvider = ({ children }) => {
     const [user, dispatch] = useReducer(userReducer, {}, init);
-    // const [products, setProducts] = useState([]);
-
-    useEffect(() => {
-        async function loadProducts() {
-            const response = await getProducts();
-            console.log(response);
-            return response;
-        }
-
-        loadProducts();
-    });
+    const [, setProducts] = useState({ data: [], state: false });
 
     useEffect(() => {
         localStorage.setItem('user', JSON.stringify(user));
     }, [user]);
+
+    useEffect(() => {
+        async function loadPaises() {
+            const response = await axiosGet();
+
+            response[0]?.continent
+                ? setProducts({
+                      data: [...response],
+                      state: false,
+                  })
+                : setProducts({ data: [], state: true });
+        }
+
+        loadPaises();
+    }, []);
 
     const data = { user, dispatch };
 

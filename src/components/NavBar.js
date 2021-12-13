@@ -29,7 +29,7 @@ export const NavBar = () => {
                         exact
                         to='/primero'
                     >
-                        Primero
+                        Continents
                     </NavLink>
 
                     <NavLink
