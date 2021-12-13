@@ -4,14 +4,14 @@ import { AuthContext } from '../context/Context';
 import { types } from '../helpers/types';
 
 export const NavBar = () => {
-    const { user, dispatch } = useContext(AuthContext);
+    const { user, dispatchUser } = useContext(AuthContext);
 
     const history = useHistory();
 
     const handleLogout = () => {
         history.replace('/');
 
-        dispatch({
+        dispatchUser({
             type: types.logout,
         });
     };
@@ -20,7 +20,7 @@ export const NavBar = () => {
         <nav className='navbar navbar-expand navbar-dark bg-dark'>
             <div className='container'>
                 <div className='navbar-nav'>
-                    <Link className='navbar-brand m-auto p-2' to='/segundo'>
+                    <Link className='navbar-brand m-auto p-2' to='/continents'>
                         Home
                     </Link>
                     <NavLink

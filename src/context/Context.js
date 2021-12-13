@@ -1,36 +1,44 @@
 import React, { createContext, useEffect, useReducer, useState } from 'react';
 import { axiosGet } from '../helpers/axiosGet';
-import { init } from '../helpers/init';
+import { initUser } from '../helpers/initUser';
 import { userReducer } from './userReducer';
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-    const [user, dispatch] = useReducer(userReducer, {}, init);
-    const [, setProducts] = useState({ data: [], state: false });
+    //* Reducer para manejar la autenticacion.
+    const [user, dispatchUser] = useReducer(userReducer, {}, initUser);
+
+    // const [continents, dispatchContinents] = useReducer(
+    //     continentReducer,
+    //     {},
+    //     init,
+    // );
+
+    const [continents, setContinents] = useState({ data: [], state: false });
 
     useEffect(() => {
         localStorage.setItem('user', JSON.stringify(user));
     }, [user]);
 
     useEffect(() => {
-        async function loadPaises() {
+        async function loadContinents() {
             const response = await axiosGet();
 
             console.log(response);
 
             response[0]?.continent
-                ? setProducts({
+                ? setContinents({
                       data: [...response],
                       state: false,
                   })
-                : setProducts({ data: [], state: true });
+                : setContinents({ data: [], state: true });
         }
 
-        loadPaises();
+        loadContinents();
     }, []);
 
-    const data = { user, dispatch };
+    const data = { user, dispatchUser, continents };
 
     return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
 };

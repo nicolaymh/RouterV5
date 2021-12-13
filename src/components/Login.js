@@ -6,7 +6,7 @@ import { useForm } from '../hooks/useForm';
 const Login = () => {
     const [stateAlert, setStateAlert] = useState(false);
 
-    const { dispatch } = useContext(AuthContext);
+    const { dispatchUser } = useContext(AuthContext);
 
     const {
         stateForm: { name },
@@ -22,7 +22,7 @@ const Login = () => {
             return setStateAlert(true);
         } else {
             setStateAlert(false);
-            dispatch({ type: types.login, payload: { name: name } });
+            dispatchUser({ type: types.login, payload: { name: name } });
         }
     };
 
