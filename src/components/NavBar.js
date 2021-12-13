@@ -27,7 +27,7 @@ export const NavBar = () => {
                         activeClassName='text-info fs-5'
                         className='nav-item nav-link m-auto px-2'
                         exact
-                        to='/primero'
+                        to='/continents'
                     >
                         Continents
                     </NavLink>

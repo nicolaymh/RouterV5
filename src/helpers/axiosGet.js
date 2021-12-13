@@ -8,11 +8,11 @@ export async function axiosGet() {
         const response = await axios.all([...continentsList]);
 
         let continents = [
-            { continent: 'africa', countries: null },
-            { continent: 'americas', countries: null },
-            { continent: 'asia', countries: null },
-            { continent: 'europe', countries: null },
-            { continent: 'oceania', countries: null },
+            { id: 'continent-africa', continent: 'africa', countries: [] },
+            { id: 'continent-america', continent: 'america', countries: [] },
+            { id: 'continent-asia', continent: 'asia', countries: [] },
+            { id: 'continent-europe', continent: 'europe', countries: [] },
+            { id: 'continent-oceania', continent: 'oceania', countries: [] },
         ];
 
         let newArray = continents.map((continent, index) => {

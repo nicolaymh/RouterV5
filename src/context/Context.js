@@ -17,6 +17,8 @@ const AuthProvider = ({ children }) => {
         async function loadPaises() {
             const response = await axiosGet();
 
+            console.log(response);
+
             response[0]?.continent
                 ? setProducts({
                       data: [...response],
