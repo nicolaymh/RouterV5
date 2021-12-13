@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../context/Context';
-import { types } from '../helpers/types';
+import { typesUser } from '../Types/typesUser';
 import { useForm } from '../hooks/useForm';
 
 const Login = () => {
@@ -22,7 +22,7 @@ const Login = () => {
             return setStateAlert(true);
         } else {
             setStateAlert(false);
-            dispatchUser({ type: types.login, payload: { name: name } });
+            dispatchUser({ type: typesUser.login, payload: { name: name } });
         }
     };
 

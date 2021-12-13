@@ -9,12 +9,6 @@ const AuthProvider = ({ children }) => {
     //* Reducer para manejar la autenticacion.
     const [user, dispatchUser] = useReducer(userReducer, {}, initUser);
 
-    // const [continents, dispatchContinents] = useReducer(
-    //     continentReducer,
-    //     {},
-    //     init,
-    // );
-
     const [continents, setContinents] = useState({ data: [], state: false });
 
     useEffect(() => {
@@ -24,8 +18,6 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         async function loadContinents() {
             const response = await axiosGet();
-
-            console.log(response);
 
             response[0]?.continent
                 ? setContinents({

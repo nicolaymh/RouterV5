@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import { AuthContext } from '../context/Context';
-import { types } from '../helpers/types';
+import { typesUser } from '../Types/typesUser';
 
 export const NavBar = () => {
     const { user, dispatchUser } = useContext(AuthContext);
@@ -12,7 +12,7 @@ export const NavBar = () => {
         history.replace('/');
 
         dispatchUser({
-            type: types.logout,
+            type: typesUser.logout,
         });
     };
 

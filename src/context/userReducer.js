@@ -1,14 +1,14 @@
-import { types } from '../helpers/types';
+import { typesUser } from '../Types/typesUser';
 
 export const userReducer = (state, action) => {
     switch (action.type) {
-        case types.login:
+        case typesUser.login:
             return {
                 ...action.payload,
                 logged: true,
             };
 
-        case types.logout:
+        case typesUser.logout:
             return {
                 logged: false,
             };
