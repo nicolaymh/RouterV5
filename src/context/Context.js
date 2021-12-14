@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useReducer, useState } from 'react';
 import { axiosGet } from '../helpers/axiosGet';
 import { initUser } from '../helpers/initUser';
+import { continentReducer } from './continentReducer';
 import { userReducer } from './userReducer';
 
 const AuthContext = createContext();
@@ -11,6 +12,12 @@ const AuthProvider = ({ children }) => {
 
     //* useState que me guarda la data de la api REST Countries.
     const [continents, setContinents] = useState({ data: [], state: false });
+
+    //* Reducer para manejar los continentes.
+    const [stateContinent, dispatchContinent] = useReducer(
+        continentReducer,
+        [],
+    );
 
     //* UseEffect que me guarda si el usuario esta logged o no.
     useEffect(() => {
@@ -33,7 +40,13 @@ const AuthProvider = ({ children }) => {
         loadContinents();
     }, []);
 
-    const data = { user, dispatchUser, continents };
+    const data = {
+        user,
+        dispatchUser,
+        continents,
+        stateContinent,
+        dispatchContinent,
+    };
 
     return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
 };

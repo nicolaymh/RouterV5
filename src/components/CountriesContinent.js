@@ -1,19 +1,40 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../context/Context';
+import { typesContinent } from '../Types/typesContinent';
 import { Cards } from './Cards';
 
 export const CountriesContinent = () => {
     const {
         continents: { data, state },
+        stateContinent,
+        dispatchContinent,
     } = useContext(AuthContext);
 
-    console.log(data, state);
+    const handleChangeContinent = (e) => {
+        console.log(data);
+        dispatchContinent({
+            type: typesContinent[e.target.value],
+            payload: data,
+        });
+    };
 
     return (
-        <div className='row row-cols-1 row-cols-md-3 g-4 mt-2'>
-            {data.map((continent) => (
-                <Cards key={continent.id} {...continent} />
-            ))}
+        <div className='container'>
+            <select
+                className='form-select'
+                name='continents'
+                onChange={handleChangeContinent}
+            >
+                {data.map(({ id, continent }) => (
+                    <option
+                        className='text-capitalize'
+                        key={id}
+                        value={continent}
+                    >
+                        {continent.toUpperCase()}
+                    </option>
+                ))}
+            </select>
         </div>
     );
 };
