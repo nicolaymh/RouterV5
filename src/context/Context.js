@@ -13,11 +13,13 @@ const AuthProvider = ({ children }) => {
     //* useState que me guarda la data de la api REST Countries.
     const [continents, setContinents] = useState({ data: [], state: false });
 
+    //* useState para guardar lo seleccionado en el select del componente (CountriesContinent.js).
+    const [selected, setSelected] = useState('Africa');
+
     //* Reducer para manejar los continentes.
-    const [stateContinent, dispatchContinent] = useReducer(
-        continentReducer,
-        [],
-    );
+    const [stateContinent, dispatchContinent] = useReducer(continentReducer, [
+        { ...continents },
+    ]);
 
     //* UseEffect que me guarda si el usuario esta logged o no.
     useEffect(() => {
@@ -46,6 +48,8 @@ const AuthProvider = ({ children }) => {
         continents,
         stateContinent,
         dispatchContinent,
+        selected,
+        setSelected,
     };
 
     return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
