@@ -36,10 +36,10 @@ export const Country = ({ history }) => {
     return (
         <div className='card mb-3'>
             <div className='row g-0'>
-                <div className='col-md-4 border border-warning'>
+                <div className='col-md-4 m-auto'>
                     <img
                         src={flags.svg}
-                        className='img-fluid rounded-start'
+                        className='img-fluid rounded-start border border-warning'
                         alt={`flag-${name}`}
                     />
                 </div>
