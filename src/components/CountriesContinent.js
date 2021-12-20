@@ -12,7 +12,7 @@ export const CountriesContinent = () => {
         setSelected,
     } = useContext(AuthContext);
 
-    console.log(stateContinent);
+    console.log(data);
 
     const handleChangeContinent = ({ target }) => {
         setSelected(target.value.toString());
@@ -43,7 +43,11 @@ export const CountriesContinent = () => {
 
             <div className='row row-cols-1 row-cols-md-3 g-4 mt-2'>
                 {stateContinent[0]?.countries?.map((country) => (
-                    <Cards key={country.name.official} {...country} />
+                    <Cards
+                        key={country.name.official}
+                        continent={stateContinent}
+                        country={country}
+                    />
                 ))}
             </div>
         </div>

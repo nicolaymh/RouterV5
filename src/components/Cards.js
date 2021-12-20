@@ -1,6 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export const Cards = ({ name, capital, flags, currencies, languages }) => {
+export const Cards = ({ continent, country }) => {
+    const { name, capital, flags, currencies, languages } = country;
+
     return (
         <div className='col'>
             <div className='card h-100' style={{ backGround: 'gray' }}>
@@ -21,13 +24,18 @@ export const Cards = ({ name, capital, flags, currencies, languages }) => {
                     </p>
                     <p>
                         <span className='text-info'>
-                            Currencies: {Object.values(currencies)[0].symbol}{' '}
+                            Currencies: {Object.values(currencies)[0].symbol}
                         </span>
                         {Object.values(currencies)[0].name}
                     </p>
                 </div>
                 <div className='card-footer'>
-                    <small className='text-primary'>MORE...</small>
+                    <Link
+                        className='text-primary'
+                        to={`./Country/${continent[0].continent}/${name.official}`}
+                    >
+                        MORE...
+                    </Link>
                 </div>
             </div>
         </div>

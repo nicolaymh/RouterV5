@@ -35,7 +35,7 @@ const Login = () => {
                 <div className='me-2'>
                     <input
                         onChange={handleInputChange}
-                        autoComplete='false'
+                        autoComplete='off'
                         name='name'
                         value={name}
                         className='form-control text-capitalize'
