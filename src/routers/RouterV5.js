@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Switch, HashRouter } from 'react-router-dom';
 import { DashboardRoutes } from './DashboardRoutes';
 import Login from '../components/Login';
 import { AuthContext } from '../context/Context';
@@ -11,7 +11,7 @@ const RouterV5 = () => {
 
     return (
         <div>
-            <Router>
+            <HashRouter>
                 <Switch>
                     <PublicRouter
                         path='/login'
@@ -25,7 +25,7 @@ const RouterV5 = () => {
                         authUser={user}
                     />
                 </Switch>
-            </Router>
+            </HashRouter>
         </div>
     );
 };
