@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export const Cards = ({ continent, country }) => {
-    const { name, capital, flags, currencies, languages } = country;
+    const { name, capital, flags, currencies } = country;
 
     return (
-        <div className='col'>
+        <div className='col mb-3'>
             <div className='card h-100' style={{ backGround: 'gray' }}>
                 <img
                     src={flags.svg}
@@ -18,25 +18,23 @@ export const Cards = ({ continent, country }) => {
                         <span className='text-primary'>Capital: </span>
                         {capital ? `${capital}` : `${name.common}`}
                     </p>
-                    <p className='card-text'>
-                        <span className='text-primary'>Language: </span>
-                        {Object.values(languages)}
-                    </p>
-                    <p>
-                        <span className='text-info'>
-                            Currencies: {Object.values(currencies)[0].symbol}
+                    <p className='card-text text-info fw-bolder'>
+                        Currencies:
+                        <span className='text-danger'>
+                            {` '${Object.values(currencies)[0].symbol}' `}
                         </span>
-                        {Object.values(currencies)[0].name}
+                        <span className='text-primary fst-italic'>{`${
+                            Object.values(currencies)[0].name
+                        }`}</span>
                     </p>
                 </div>
-                <div className='card-footer'>
-                    <Link
-                        className='text-primary'
-                        to={`./Country/${continent[0].continent}/${name.official}`}
-                    >
-                        MORE...
-                    </Link>
-                </div>
+
+                <Link
+                    className='link-success text-decoration-none fs-5 btn btn-outline-warning'
+                    to={`./Country/${continent[0].continent}/${name.official}`}
+                >
+                    More...
+                </Link>
             </div>
         </div>
     );

@@ -43,7 +43,7 @@ export const NavBar = () => {
                 </div>
 
                 <div className='d-flex align-items-center text-info'>
-                    <h6 className='me-2 m-auto'>{user.name}</h6>
+                    <h6 className='me-2 m-auto text-capitalize'>{user.name}</h6>
                     <button
                         onClick={handleLogout}
                         className='btn btn-outline-primary text-light border'

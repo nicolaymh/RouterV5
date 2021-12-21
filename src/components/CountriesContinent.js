@@ -24,9 +24,9 @@ export const CountriesContinent = () => {
     };
 
     return (
-        <div className='container mt-2'>
+        <div className='container mt-2 bg-dark'>
             <select
-                className='form-select'
+                className='form-select mt-3'
                 value={selected}
                 onChange={handleChangeContinent}
             >

@@ -38,7 +38,7 @@ const Login = () => {
                         autoComplete='off'
                         name='name'
                         value={name}
-                        className='form-control text-capitalize'
+                        className='form-control'
                         placeholder='Nick-Name'
                         type='text'
                     />
