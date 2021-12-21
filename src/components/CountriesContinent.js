@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { AuthContext } from '../context/Context';
 import { typesContinent } from '../Types/typesContinent';
 import { Cards } from './Cards';
@@ -12,7 +12,18 @@ export const CountriesContinent = () => {
         setSelected,
     } = useContext(AuthContext);
 
-    console.log(stateContinent);
+    // console.log(stateContinent);
+    // console.log(stateContinent.length);
+    // console.log(data);
+
+    useEffect(() => {
+        if (!stateContinent.length) {
+            dispatchContinent({
+                type: typesContinent[selected],
+                payload: data,
+            });
+        }
+    }, [data, dispatchContinent, selected, stateContinent]);
 
     const handleChangeContinent = ({ target }) => {
         setSelected(target.value.toString());
@@ -26,7 +37,7 @@ export const CountriesContinent = () => {
     return (
         <div className='container mt-2 bg-dark'>
             <h4 className='text-info text-center fw-lighter fst-italic pt-2'>
-                {stateContinent[0].continent} Countries:
+                {stateContinent[0]?.continent} Countries:
                 <span className='text-light'>
                     {` ${stateContinent[0]?.countries?.length}`}
                 </span>
