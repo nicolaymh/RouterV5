@@ -69,7 +69,7 @@ export const Country = ({ history }) => {
                         </p>
                         <p className='card-text'>
                             <span className='fw-bolder fst-italic text-success'>
-                                Currencies:{' '}
+                                Currency:{' '}
                             </span>
                             <span className='text-danger'>
                                 {Object.values(currencies)[0].symbol || ''}

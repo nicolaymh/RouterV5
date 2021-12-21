@@ -19,7 +19,7 @@ export const Cards = ({ continent, country }) => {
                         {capital ? `${capital}` : `${name.common}`}
                     </p>
                     <p className='card-text text-info fw-bolder'>
-                        Currencies:{' '}
+                        Currency:{' '}
                         <span className='text-danger'>
                             {Object.values(currencies)[0].symbol || ''}
                         </span>
