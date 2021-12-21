@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import { AuthContext } from '../context/Context';
 import { typesContinent } from '../Types/typesContinent';
 import { Cards } from './Cards';
@@ -16,7 +16,7 @@ export const CountriesContinent = () => {
     // console.log(stateContinent.length);
     // console.log(data);
 
-    useEffect(() => {
+    const init = useCallback(() => {
         if (!stateContinent.length) {
             dispatchContinent({
                 type: typesContinent[selected],
@@ -24,6 +24,10 @@ export const CountriesContinent = () => {
             });
         }
     }, [data, dispatchContinent, selected, stateContinent]);
+
+    useEffect(() => {
+        init();
+    }, [data, dispatchContinent, selected, stateContinent, init]);
 
     const handleChangeContinent = ({ target }) => {
         setSelected(target.value.toString());
