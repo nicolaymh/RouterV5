@@ -33,7 +33,7 @@ export const Country = ({ history }) => {
     } = countryArray[0];
 
     return (
-        <div className='card mb-3 mt-2 bg-light'>
+        <div className='card mb-3 mt-2 bg-dark'>
             <div className='row g-0'>
                 <div className='col-md-4 m-auto'>
                     <img
@@ -72,7 +72,7 @@ export const Country = ({ history }) => {
                             <span className='text-danger'>
                                 {` '${Object.values(currencies)[0].symbol}' `}
                             </span>
-                            <span className='text-dark'>
+                            <span className='text-warning'>
                                 {Object.values(currencies)[0].name}
                             </span>
                         </p>
@@ -102,7 +102,7 @@ export const Country = ({ history }) => {
 
                             {Object.values(languages).map((ele, index) => (
                                 <h6
-                                    className='m-0 text-secondary fst-italic font-monospace'
+                                    className='m-0 text-secondary fst-italic font-monospace text-info'
                                     key={ele + index}
                                 >
                                     {ele}
@@ -122,7 +122,7 @@ export const Country = ({ history }) => {
                                 </a>
                             </small>
 
-                            {' & '}
+                            {` `}
 
                             <small className='text-muted'>
                                 <a
