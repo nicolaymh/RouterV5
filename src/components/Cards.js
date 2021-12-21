@@ -19,13 +19,13 @@ export const Cards = ({ continent, country }) => {
                         {capital ? `${capital}` : `${name.common}`}
                     </p>
                     <p className='card-text text-info fw-bolder'>
-                        Currencies:
+                        Currencies:{' '}
                         <span className='text-danger'>
-                            {` '${Object.values(currencies)[0].symbol}' `}
+                            {Object.values(currencies)[0].symbol || ''}
                         </span>
-                        <span className='text-primary fst-italic'>{`${
-                            Object.values(currencies)[0].name
-                        }`}</span>
+                        <span className='text-dark'>
+                            {` ${Object.values(currencies)[0].name}`}
+                        </span>
                     </p>
                 </div>
 

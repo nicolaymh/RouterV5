@@ -67,13 +67,13 @@ export const Country = ({ history }) => {
                         </p>
                         <p className='card-text'>
                             <span className='fw-bolder fst-italic text-success'>
-                                Currencies:
+                                Currencies:{' '}
                             </span>
                             <span className='text-danger'>
-                                {` '${Object.values(currencies)[0].symbol}' `}
+                                {Object.values(currencies)[0].symbol || ''}
                             </span>
                             <span className='text-warning'>
-                                {Object.values(currencies)[0].name}
+                                {` ${Object.values(currencies)[0].name}`}
                             </span>
                         </p>
                         <p className='card-text'>

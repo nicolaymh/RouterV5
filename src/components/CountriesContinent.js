@@ -5,7 +5,7 @@ import { Cards } from './Cards';
 
 export const CountriesContinent = () => {
     const {
-        continents: { data, state },
+        continents: { data /* state */ },
         stateContinent,
         dispatchContinent,
         selected,
