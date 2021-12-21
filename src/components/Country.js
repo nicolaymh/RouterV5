@@ -62,8 +62,10 @@ export const Country = ({ history }) => {
                             <span className='text-success fst-italic fs-5 fw-bolder'>
                                 Area:
                             </span>
-                            <span className='text-danger'> {area}</span> m
-                            <sup>2</sup>
+                            <span className='text-danger'> {area} </span>
+                            <span className='text-info'>
+                                m<sup>2</sup>
+                            </span>
                         </p>
                         <p className='card-text'>
                             <span className='fw-bolder fst-italic text-success'>
