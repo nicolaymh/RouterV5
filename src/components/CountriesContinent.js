@@ -25,7 +25,7 @@ export const CountriesContinent = () => {
 
     return (
         <div className='container mt-2 bg-dark'>
-            <h4 className='text-info text-center pt-2'>
+            <h4 className='text-info text-center fw-lighter fst-italic pt-2'>
                 {stateContinent[0].continent} Countries:
                 <span className='text-light'>
                     {` ${stateContinent[0]?.countries?.length}`}
