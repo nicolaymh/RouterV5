@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect } from 'react';
+import { useCallback, useContext, useEffect } from 'react';
 import { AuthContext } from '../context/Context';
 import { typesContinent } from '../Types/typesContinent';
 import { Cards } from './Cards';
@@ -29,14 +29,17 @@ export const CountriesContinent = () => {
         init();
     }, [data, dispatchContinent, selected, stateContinent, init]);
 
-    const handleChangeContinent = ({ target }) => {
-        setSelected(target.value.toString());
+    const handleChangeContinent = useCallback(
+        ({ target }) => {
+            setSelected(target.value.toString());
 
-        dispatchContinent({
-            type: typesContinent[target.value],
-            payload: data,
-        });
-    };
+            dispatchContinent({
+                type: typesContinent[target.value],
+                payload: data,
+            });
+        },
+        [data, dispatchContinent, setSelected],
+    );
 
     return (
         <div className='container mt-2 bg-dark'>
