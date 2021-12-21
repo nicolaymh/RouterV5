@@ -12,7 +12,7 @@ export const CountriesContinent = () => {
         setSelected,
     } = useContext(AuthContext);
 
-    console.log(data);
+    console.log(stateContinent);
 
     const handleChangeContinent = ({ target }) => {
         setSelected(target.value.toString());
@@ -25,6 +25,13 @@ export const CountriesContinent = () => {
 
     return (
         <div className='container mt-2 bg-dark'>
+            <h4 className='text-info text-center pt-2'>
+                {stateContinent[0].continent} Countries:
+                <span className='text-light'>
+                    {` ${stateContinent[0]?.countries?.length}`}
+                </span>
+            </h4>
+
             <select
                 className='form-select mt-3'
                 value={selected}
