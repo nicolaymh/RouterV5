@@ -64,7 +64,7 @@ export const Country = ({ history }) => {
                             </span>
                             <span className='text-danger'> {area} </span>
                             <span className='text-info'>
-                                m<sup>2</sup>
+                                km<sup>2</sup>
                             </span>
                         </p>
                         <p className='card-text'>
