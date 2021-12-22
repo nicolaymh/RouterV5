@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect } from 'react';
+import { useCallback, useContext } from 'react';
 import { AuthContext } from '../context/Context';
 import { typesContinent } from '../Types/typesContinent';
 import { Cards } from './Cards';
@@ -15,21 +15,6 @@ export const CountriesContinent = () => {
     // console.log(stateContinent);
     // console.log(stateContinent.length);
     // console.log(data);
-
-    useEffect(
-        () => {
-            const init = () => {
-                if (!stateContinent.length) {
-                    dispatchContinent({
-                        type: typesContinent[selected],
-                        payload: data,
-                    });
-                }
-            };
-            init();
-        }, // eslint-disable-next-line react-hooks/exhaustive-deps
-        [],
-    );
 
     const handleChangeContinent = useCallback(
         ({ target }) => {
