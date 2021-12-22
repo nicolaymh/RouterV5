@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useReducer, useState } from 'react';
-import { axiosGet } from '../helpers/axiosGet';
+import { axiosGetContinents } from '../helpers/axiosGetContinents';
 import { initUser } from '../helpers/initUser';
 import { continentReducer } from './continentReducer';
 import { userReducer } from './userReducer';
@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
     //* useEffect que me consume la api de REST Countries solo al iniciar la aplicacion.
     useEffect(() => {
         async function loadContinents() {
-            const response = await axiosGet();
+            const response = await axiosGetContinents();
 
             response[0]?.continent
                 ? setContinents({

@@ -16,27 +16,36 @@ export const CountriesContinent = () => {
     // console.log(stateContinent.length);
     // console.log(data);
 
-    const init = useCallback(() => {
+    const handleChangeContinent = useCallback(
+        ({ target }) => {
+            setSelected(target.value.toString());
+
+            dispatchContinent({
+                type: typesContinent[target.value],
+                payload: data,
+            });
+        },
+        [data, dispatchContinent, setSelected],
+    );
+
+    useEffect(() => {
         if (!stateContinent.length) {
             dispatchContinent({
                 type: typesContinent[selected],
                 payload: data,
             });
+
+            return;
         }
-    }, [data, dispatchContinent, selected, stateContinent]);
 
-    useEffect(() => {
-        init();
-    }, [init]);
-
-    const handleChangeContinent = ({ target }) => {
-        setSelected(target.value.toString());
-
-        dispatchContinent({
-            type: typesContinent[target.value],
-            payload: data,
-        });
-    };
+        return;
+    }, [
+        data,
+        dispatchContinent,
+        selected,
+        stateContinent,
+        handleChangeContinent,
+    ]);
 
     return (
         <div className='container mt-2 bg-dark'>

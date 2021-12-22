@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { continents } from './continents';
 
-export async function axiosGet() {
+export async function axiosGetContinents() {
     const continentsList = continents();
 
     try {
