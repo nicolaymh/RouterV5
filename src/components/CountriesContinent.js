@@ -27,19 +27,16 @@ export const CountriesContinent = () => {
 
     useEffect(() => {
         init();
-    }, [data, dispatchContinent, selected, stateContinent, init]);
+    }, [init]);
 
-    const handleChangeContinent = useCallback(
-        ({ target }) => {
-            setSelected(target.value.toString());
+    const handleChangeContinent = ({ target }) => {
+        setSelected(target.value.toString());
 
-            dispatchContinent({
-                type: typesContinent[target.value],
-                payload: data,
-            });
-        },
-        [data, dispatchContinent, setSelected],
-    );
+        dispatchContinent({
+            type: typesContinent[target.value],
+            payload: data,
+        });
+    };
 
     return (
         <div className='container mt-2 bg-dark'>
