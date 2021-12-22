@@ -8,13 +8,13 @@ export const Country = ({ history }) => {
     const params = useParams();
     const { zone, country } = params;
 
+    // console.log(continents);
+
     const countryArray = continents.data
         .filter((e) => e.continent === zone)[0]
-        ?.countries.filter((e) => e.name.official === country);
+        ?.countries.filter((e) => e.name.common === country);
 
     if (!countryArray) return <Redirect to='/' />;
-
-    // console.log(history);
 
     const handleReturn = () => {
         history.push('/');
@@ -52,10 +52,10 @@ export const Country = ({ history }) => {
 
                         <p className='card-text'>
                             <span className='text-success fst-italic fw-bolder'>
-                                {`Capital: `}
+                                Capital:{' '}
                             </span>
                             <span className='text-danger fw-bolder'>
-                                {capital}
+                                {capital ? `${capital}` : `${name.common}`}
                             </span>
                         </p>
                         <p className='card-text'>
