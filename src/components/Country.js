@@ -17,7 +17,7 @@ export const Country = ({ history }) => {
     if (!countryArray) return <Redirect to='/' />;
 
     const handleReturn = () => {
-        history.push('/');
+        history.goBack();
     };
 
     const {
