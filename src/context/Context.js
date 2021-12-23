@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { createContext, useEffect, useReducer, useState } from 'react';
 import { axiosGetContinents } from '../helpers/axiosGetContinents';
 import { initUser } from '../helpers/initUser';
@@ -22,6 +23,32 @@ const AuthProvider = ({ children }) => {
         continentReducer,
         [],
     );
+
+    const [dataCountry, setDataCountry] = useState({
+        data: [],
+        estadoPeticion: 'correcta',
+    });
+
+    useEffect(() => {
+        const fetchAxios = async () => {
+            try {
+                const response = await axios({
+                    url: 'https://restcountries.com/v3.1/name/ass',
+                    method: 'GET',
+                });
+
+                setDataCountry({
+                    data: [...response.data],
+                    estadoPeticion: 'correcta',
+                });
+            } catch (error) {
+                console.log(error);
+                setDataCountry({ data: [], estadoPeticion: 'fallo' });
+            }
+        };
+
+        fetchAxios();
+    }, [setDataCountry]);
 
     //* UseEffect que me guarda si el usuario esta logged o no.
     useEffect(() => {
@@ -63,6 +90,7 @@ const AuthProvider = ({ children }) => {
         dispatchContinent,
         selected,
         setSelected,
+        dataCountry,
     };
 
     return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
