@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Dos = () => {
+export const SearchCountry = () => {
     return (
         <div>
-            <h3>Dos</h3>
+            <h3>Search Country</h3>
         </div>
     );
 };

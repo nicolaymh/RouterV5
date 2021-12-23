@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router';
 import { CountriesContinent } from '../components/CountriesContinent';
 import { Country } from '../components/Country';
-import { Dos } from '../components/Dos';
+import { SearchCountry } from '../components/SearchCountry';
 import { NavBar } from '../components/NavBar';
 
 export const DashboardRoutes = () => {
@@ -20,7 +20,11 @@ export const DashboardRoutes = () => {
 
                     <Route path='/country/:zone/:country' component={Country} />
 
-                    <Route exact path='/segundo' component={Dos} />
+                    <Route
+                        exact
+                        path='/searchCountry'
+                        component={SearchCountry}
+                    />
 
                     <Redirect to='/continents' />
                 </Switch>
