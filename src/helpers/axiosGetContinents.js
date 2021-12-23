@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { continents } from './continents';
 
-export async function axiosGet() {
+export async function axiosGetContinents() {
     const continentsList = continents();
 
     try {
         const response = await axios.all([...continentsList]);
+
+        // console.log(response);
 
         let continents = [
             { id: 'continent-africa', continent: 'Africa', countries: [] },
@@ -18,6 +20,8 @@ export async function axiosGet() {
         let newArray = continents.map((continent, index) => {
             return { ...continent, countries: [...response[index].data] };
         });
+
+        // console.log(newArray);
 
         return newArray;
     } catch (e) {

@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useReducer, useState } from 'react';
-import { axiosGet } from '../helpers/axiosGet';
+import { axiosGetContinents } from '../helpers/axiosGetContinents';
 import { initUser } from '../helpers/initUser';
 import { typesContinent } from '../Types/typesContinent';
 import { continentReducer } from './continentReducer';
@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
     useEffect(
         () => {
             async function loadContinents() {
-                const response = await axiosGet();
+                const response = await axiosGetContinents();
                 if (response[0]?.continent) {
                     setContinents({
                         data: [...response],
