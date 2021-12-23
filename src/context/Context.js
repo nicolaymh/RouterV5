@@ -33,13 +33,13 @@ const AuthProvider = ({ children }) => {
         () => {
             async function loadContinents() {
                 const response = await axiosGet();
-
                 if (response[0]?.continent) {
                     setContinents({
                         data: [...response],
                         state: false,
                     });
 
+                    //* Iniciamos el selector de el router continents con Africa y sus paises.
                     dispatchContinent({
                         type: typesContinent[selected],
                         payload: response,
