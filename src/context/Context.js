@@ -34,10 +34,6 @@ const AuthProvider = ({ children }) => {
             async function loadContinents() {
                 const response = await axiosGet();
 
-                // console.log(response);
-
-                const continentDefault = response;
-
                 if (response[0]?.continent) {
                     setContinents({
                         data: [...response],
@@ -46,7 +42,7 @@ const AuthProvider = ({ children }) => {
 
                     dispatchContinent({
                         type: typesContinent[selected],
-                        payload: continentDefault,
+                        payload: response,
                     });
                 } else {
                     setContinents({ data: [], state: true });
