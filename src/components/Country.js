@@ -48,7 +48,7 @@ export const Country = ({ history }) => {
                             {name.common}
                         </h5>
 
-                        <hr className='border border-4 border-secondary' />
+                        <hr className='text-dark' />
 
                         <p className='card-text'>
                             <span className='text-success fst-italic fw-bolder'>
