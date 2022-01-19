@@ -37,14 +37,14 @@ export const Country = ({ history }) => {
     return (
         <div className='card mb-3 mt-2 bg-dark'>
             <div className='row g-0'>
-                <div className='col-md-4 m-auto'>
+                <div className='col-md-4 m-auto animate__animated animate__bounceInLeft animate__slow 3s'>
                     <img
                         src={flags.svg}
                         className='img-fluid rounded-start border border-warning'
                         alt={`flag-${name}`}
                     />
                 </div>
-                <div className='col-md-8 m-auto'>
+                <div className='col-md-8 m-auto animate__animated animate__backInRight animate__slow 2s'>
                     <div className='card-body text-center'>
                         <h5 className='card-title text-primary mb-3 fw-bold'>
                             {name.common}
