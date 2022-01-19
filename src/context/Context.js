@@ -11,17 +11,17 @@ const AuthProvider = ({ children }) => {
     //* Reducer para manejar la autenticacion.
     const [user, dispatchUser] = useReducer(userReducer, {}, initUser);
 
-    //* useState que me guarda la data de la api REST Countries.
-    const [continents, setContinents] = useState({ data: [], state: false });
-
-    //* useState para guardar lo seleccionado en el select del componente (CountriesContinent.js).
-    const [selected, setSelected] = useState('Africa');
-
     //* Reducer para manejar los continentes.
     const [stateContinent, dispatchContinent] = useReducer(
         continentReducer,
         [],
     );
+
+    //* useState que me guarda la data de la api REST Countries.
+    const [continents, setContinents] = useState({ data: [], state: false });
+
+    //* useState para guardar lo seleccionado en el select del componente (CountriesContinent.js).
+    const [selected, setSelected] = useState('Africa');
 
     //* UseEffect que me guarda si el usuario esta logged o no.
     useEffect(() => {
