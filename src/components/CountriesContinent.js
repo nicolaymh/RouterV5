@@ -2,10 +2,11 @@ import { useCallback, useContext } from 'react';
 import { AuthContext } from '../context/Context';
 import { typesContinent } from '../Types/typesContinent';
 import { Cards } from './Cards';
+import { ErrorContinents } from './ErrorContinents';
 
 export const CountriesContinent = () => {
     const {
-        continents: { data /* state */ },
+        continents: { data, state },
         stateContinent,
         dispatchContinent,
         selected,
@@ -13,8 +14,8 @@ export const CountriesContinent = () => {
     } = useContext(AuthContext);
 
     // console.log(stateContinent);
-    // console.log(stateContinent.length);
     // console.log(data);
+    // console.log(state);
 
     const handleChangeContinent = useCallback(
         ({ target }) => {
@@ -28,7 +29,9 @@ export const CountriesContinent = () => {
         [setSelected, dispatchContinent, data],
     );
 
-    return (
+    return state ? (
+        <ErrorContinents />
+    ) : (
         <div className='container mt-2 bg-dark'>
             <h4 className='text-info text-center fw-lighter fst-italic pt-2'>
                 {stateContinent[0]?.continent} Countries:

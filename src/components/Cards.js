@@ -31,7 +31,7 @@ export const Cards = ({ continent, country }) => {
 
                 <Link
                     className='link-success text-decoration-none fs-5 btn btn-outline-warning'
-                    to={`./Country/${continent[0].continent}/${name.common}`}
+                    to={`./country/${continent[0].continent}/${name.common}`}
                 >
                     More...
                 </Link>

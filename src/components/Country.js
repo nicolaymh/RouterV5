@@ -9,6 +9,8 @@ export const Country = ({ history }) => {
     const { zone, country } = params;
 
     // console.log(continents);
+    // console.log(zone);
+    // console.log(country);
 
     const countryArray = continents.data
         .filter((e) => e.continent === zone)[0]
@@ -17,7 +19,7 @@ export const Country = ({ history }) => {
     if (!countryArray) return <Redirect to='/' />;
 
     const handleReturn = () => {
-        history.push('/');
+        history.goBack();
     };
 
     const {

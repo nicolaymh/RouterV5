@@ -4,6 +4,8 @@ import { continents } from './continents';
 export async function axiosGetContinents() {
     const continentsList = continents();
 
+    // console.log(continentsList);
+
     try {
         const response = await axios.all([...continentsList]);
 

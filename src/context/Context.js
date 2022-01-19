@@ -39,7 +39,7 @@ const AuthProvider = ({ children }) => {
                         state: false,
                     });
 
-                    //* Iniciamos el selector de el router continents con Africa y sus paises.
+                    //* Iniciamos el selector de el router continents con Africa y sus paises en la primera carga de la aplicacion.
                     dispatchContinent({
                         type: typesContinent[selected],
                         payload: response,
