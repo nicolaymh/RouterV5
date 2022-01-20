@@ -5,7 +5,7 @@ export const Cards = ({ continent, country }) => {
     const { name, capital, flags, currencies } = country;
 
     return (
-        <div className='col mb-3 animate__animated animate__rotateIn'>
+        <div className='col mb-3 animate__animated animate__rotateIn animate__slow 1s'>
             <div className='card h-100' style={{ backGround: 'gray' }}>
                 <img
                     src={flags.svg}
