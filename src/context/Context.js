@@ -1,8 +1,11 @@
 import React, { createContext, useEffect, useReducer, useState } from 'react';
 import { axiosGetContinents } from '../helpers/axiosGetContinents';
 import { initUser } from '../helpers/initUser';
+import { useAxios } from '../hooks/useAxios';
 import { typesContinent } from '../Types/typesContinent';
+import { typesCountry } from '../Types/typesCountry';
 import { continentReducer } from './continentReducer';
+import { countryReducer } from './countryReducer';
 import { userReducer } from './userReducer';
 
 const AuthContext = createContext();
@@ -17,11 +20,23 @@ const AuthProvider = ({ children }) => {
         [],
     );
 
+    //* Reducer para manejar la consulta por pais a la Api:
+    const [countryFetching, dispatchCountryFetching] = useReducer(
+        countryReducer,
+        {
+            data: [],
+            stateFetching: false,
+        },
+    );
+
     //* useState que me guarda la data de la api REST Countries.
     const [continents, setContinents] = useState({ data: [], state: false });
 
     //* useState para guardar lo seleccionado en el select del componente (CountriesContinent.js).
     const [selected, setSelected] = useState('Africa');
+
+    //* useState que me guarda lo ingresado en el formulario en el componente SearchCountry al pulsar el boton:
+    const [infoCountry, setInfoCountry] = useState('Colombia');
 
     //* UseEffect que me guarda si el usuario esta logged o no.
     useEffect(() => {
@@ -55,6 +70,28 @@ const AuthProvider = ({ children }) => {
         [],
     );
 
+    //* useEffect que se ejecuta cada vez que se busca un pais en el componente SearchCountry.js..
+    useEffect(() => {
+        async function LoadCountry() {
+            const response = await useAxios(
+                `https://restcountries.com/v3.1/name/${infoCountry}?fullText=true`,
+            );
+
+            if (response?.data) {
+                dispatchCountryFetching({
+                    type: typesCountry.FETCH_SUCCESS,
+                    payload: response.data,
+                });
+            } else {
+                dispatchCountryFetching({
+                    type: typesCountry.FETCH_ERROR,
+                });
+            }
+        }
+
+        LoadCountry();
+    }, [infoCountry]);
+
     const data = {
         user,
         dispatchUser,
@@ -63,6 +100,7 @@ const AuthProvider = ({ children }) => {
         dispatchContinent,
         selected,
         setSelected,
+        setInfoCountry,
     };
 
     return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
