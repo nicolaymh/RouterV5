@@ -77,6 +77,7 @@ const AuthProvider = ({ children }) => {
                 `https://restcountries.com/v3.1/name/${infoCountry}?fullText=true`,
             );
 
+            //* Guardar consulta de pais del componente SearchCountry.js
             localStorage.setItem('infoCountry', JSON.stringify(infoCountry));
 
             console.log(response?.data);
