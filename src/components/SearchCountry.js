@@ -65,9 +65,10 @@ export const SearchCountry = ({ history }) => {
             {q !== '' && data.length === 0 && (
                 <div className='alert alert-danger text-center'>
                     No country found by name xxx:{' '}
-                    <span className='fw-bolder'>{country}</span>
+                    <span className='fw-bolder'>{q}</span>
                 </div>
             )}
+
             {q !== '' && data.length !== 0 && (
                 <div className='alert alert-primary text-center'>Hay pais</div>
             )}

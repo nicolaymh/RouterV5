@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useReducer, useState } from 'react';
 import { axiosGetContinents } from '../helpers/axiosGetContinents';
+import { initInfoCountry } from '../helpers/initInfoCountry';
 import { initUser } from '../helpers/initUser';
 import { useAxios } from '../hooks/useAxios';
 import { typesContinent } from '../Types/typesContinent';
@@ -25,7 +26,6 @@ const AuthProvider = ({ children }) => {
         countryReducer,
         {
             data: [],
-            stateFetching: false,
         },
     );
 
@@ -36,7 +36,7 @@ const AuthProvider = ({ children }) => {
     const [selected, setSelected] = useState('Africa');
 
     //* useState que me guarda lo ingresado en el formulario en el componente SearchCountry al pulsar el boton:
-    const [infoCountry, setInfoCountry] = useState('');
+    const [infoCountry, setInfoCountry] = useState(initInfoCountry);
 
     //* UseEffect que me guarda si el usuario esta logged o no.
     useEffect(() => {
@@ -76,6 +76,8 @@ const AuthProvider = ({ children }) => {
             const response = await useAxios(
                 `https://restcountries.com/v3.1/name/${infoCountry}?fullText=true`,
             );
+
+            localStorage.setItem('infoCountry', JSON.stringify(infoCountry));
 
             console.log(response?.data);
 
