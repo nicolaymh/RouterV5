@@ -8,10 +8,6 @@ export const Country = ({ history }) => {
     const params = useParams();
     const { zone, country } = params;
 
-    // console.log(continents);
-    // console.log(zone);
-    // console.log(country);
-
     const countryArray = continents.data
         .filter((e) => e.continent === zone)[0]
         ?.countries.filter((e) => e.name.common === country);

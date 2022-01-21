@@ -9,7 +9,6 @@ export async function useAxios(api = '') {
 
         return response;
     } catch (e) {
-        console.warn(`Fallo: ${e}`);
         return false;
     }
 }

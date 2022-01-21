@@ -5,12 +5,10 @@ export const countryReducer = (state, action) => {
         case typesCountry.FETCH_SUCCESS:
             return {
                 data: action.payload,
-                stateFetching: false,
             };
         case typesCountry.FETCH_ERROR:
             return {
                 data: [],
-                stateFetching: true,
             };
 
         default:

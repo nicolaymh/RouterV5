@@ -36,7 +36,7 @@ const AuthProvider = ({ children }) => {
     const [selected, setSelected] = useState('Africa');
 
     //* useState que me guarda lo ingresado en el formulario en el componente SearchCountry al pulsar el boton:
-    const [infoCountry, setInfoCountry] = useState('Colombia');
+    const [infoCountry, setInfoCountry] = useState('');
 
     //* UseEffect que me guarda si el usuario esta logged o no.
     useEffect(() => {
@@ -77,6 +77,8 @@ const AuthProvider = ({ children }) => {
                 `https://restcountries.com/v3.1/name/${infoCountry}?fullText=true`,
             );
 
+            console.log(response?.data);
+
             if (response?.data) {
                 dispatchCountryFetching({
                     type: typesCountry.FETCH_SUCCESS,
@@ -100,6 +102,7 @@ const AuthProvider = ({ children }) => {
         dispatchContinent,
         selected,
         setSelected,
+        countryFetching,
         setInfoCountry,
     };
 
