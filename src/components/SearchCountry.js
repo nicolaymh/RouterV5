@@ -8,11 +8,12 @@ import queryString from 'query-string';
 export const SearchCountry = ({ history }) => {
     const {
         countryFetching: { data },
+        infoCountry,
         setInfoCountry,
     } = useContext(AuthContext);
 
     const location = useLocation();
-    const { q = '' } = queryString.parse(location.search);
+    const { q = infoCountry || '' } = queryString.parse(location.search);
 
     const { stateForm, handleInputChange } = useForm({ country: q });
     const { country } = stateForm;
@@ -22,7 +23,6 @@ export const SearchCountry = ({ history }) => {
         // console.log(q);
 
         if (q === country) {
-            // console.log('entro');
             return;
         }
 

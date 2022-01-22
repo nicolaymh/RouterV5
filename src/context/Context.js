@@ -106,6 +106,7 @@ const AuthProvider = ({ children }) => {
         selected,
         setSelected,
         countryFetching,
+        infoCountry,
         setInfoCountry,
     };
 
