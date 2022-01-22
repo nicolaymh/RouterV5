@@ -82,6 +82,7 @@ const AuthProvider = ({ children }) => {
 
             // console.log('-----------------------');
             // console.log(response?.data);
+            // console.log(countryFetching);
             // console.log('-----------------------');
 
             if (response?.data) {

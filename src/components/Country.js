@@ -45,8 +45,10 @@ export const Country = ({ history }) => {
 
     return (
         <div className='card mb-3 mt-2 bg-dark'>
-            <div className='row g-0'>
-                <ShowCountry {...info} />;
+            <div className='row g-0 d-flex justify-content-sm-center'>
+                <ShowCountry {...info} />
+            </div>
+            <div className='d-flex justify-content-center mt-2 mb-4 animate__animated animate__slideInUp'>
                 <button onClick={handleReturn} className='btn btn-success'>
                     Return
                 </button>

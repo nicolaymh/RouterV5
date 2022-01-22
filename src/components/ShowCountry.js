@@ -11,14 +11,14 @@ export const ShowCountry = ({
 }) => {
     return (
         <>
-            <div className='col-md-4 m-auto animate__animated animate__slideInLeft'>
+            <div className='col-md-4 my-auto animate__animated animate__slideInLeft'>
                 <img
                     src={flags.svg}
                     className='img-fluid rounded-start border border-warning'
                     alt={`flag-${name}`}
                 />
             </div>
-            <div className='col-md-8 m-auto animate__animated animate__slideInRight'>
+            <div className='col-md-8 animate__animated animate__slideInRight'>
                 <div className='card-body text-center'>
                     <h5 className='card-title text-primary mb-3 fw-bold'>
                         {name.common}

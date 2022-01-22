@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { AuthContext } from '../context/Context';
 import { useForm } from '../hooks/useForm';
+import { ShowCountry } from './ShowCountry';
 
 import queryString from 'query-string';
 
@@ -29,6 +30,38 @@ export const SearchCountry = ({ history }) => {
         setInfoCountry(country.trim());
         history.push(`?q=${country}`);
     };
+
+    //* Desestructurando la informacion del pais para luego crear el obeto y enviarlo al componente ShowCountry
+    // const {
+    //     capital,
+    //     area,
+    //     continents: continent,
+    //     currencies,
+    //     flags,
+    //     languages,
+    //     maps,
+    //     name,
+    //     population,
+    // } = data;
+
+    // const info = {
+    //     capital,
+    //     area,
+    //     continents: continent,
+    //     currencies,
+    //     flags,
+    //     languages,
+    //     maps,
+    //     name,
+    //     population,
+    // };
+
+    const info = { ...data }[0];
+
+    console.log('Data:');
+    console.log(data);
+    console.log(info);
+    console.log('----------');
 
     return (
         <form
@@ -69,9 +102,7 @@ export const SearchCountry = ({ history }) => {
                 </div>
             )}
 
-            {q !== '' && data.length !== 0 && (
-                <div className='alert alert-primary text-center'>Hay pais</div>
-            )}
+            {/* {q !== '' && data.length !== 0 && <ShowCountry {...info} />} */}
         </form>
     );
 };
