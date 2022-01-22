@@ -80,7 +80,9 @@ const AuthProvider = ({ children }) => {
             //* Guardar consulta de pais del componente SearchCountry.js
             localStorage.setItem('infoCountry', JSON.stringify(infoCountry));
 
-            console.log(response?.data);
+            // console.log('-----------------------');
+            // console.log(response?.data);
+            // console.log('-----------------------');
 
             if (response?.data) {
                 dispatchCountryFetching({

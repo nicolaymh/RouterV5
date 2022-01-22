@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export const Cards = ({ continent, country }) => {
+    // console.log(continent);
+
     const { name, capital, flags, currencies } = country;
 
     return (
