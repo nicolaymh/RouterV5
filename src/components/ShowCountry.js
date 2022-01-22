@@ -13,7 +13,7 @@ export const ShowCountry = ({
         <>
             <div className='col-md-4 my-auto animate__animated animate__slideInLeft'>
                 <img
-                    src={flags.svg}
+                    src={flags?.svg}
                     className='img-fluid rounded-start border border-warning'
                     alt={`flag-${name}`}
                 />
@@ -21,7 +21,7 @@ export const ShowCountry = ({
             <div className='col-md-8 animate__animated animate__slideInRight'>
                 <div className='card-body text-center'>
                     <h5 className='card-title text-primary mb-3 fw-bold'>
-                        {name.common}
+                        {name?.common}
                     </h5>
 
                     <hr className='text-dark' />

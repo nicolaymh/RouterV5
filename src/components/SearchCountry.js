@@ -31,37 +31,9 @@ export const SearchCountry = ({ history }) => {
         history.push(`?q=${country}`);
     };
 
-    //* Desestructurando la informacion del pais para luego crear el obeto y enviarlo al componente ShowCountry
-    // const {
-    //     capital,
-    //     area,
-    //     continents: continent,
-    //     currencies,
-    //     flags,
-    //     languages,
-    //     maps,
-    //     name,
-    //     population,
-    // } = data;
-
-    // const info = {
-    //     capital,
-    //     area,
-    //     continents: continent,
-    //     currencies,
-    //     flags,
-    //     languages,
-    //     maps,
-    //     name,
-    //     population,
-    // };
-
-    const info = { ...data }[0];
-
-    console.log('Data:');
-    console.log(data);
-    console.log(info);
-    console.log('----------');
+    // console.log('Data:');
+    // console.log(data);
+    // console.log('----------');
 
     return (
         <form
@@ -102,7 +74,13 @@ export const SearchCountry = ({ history }) => {
                 </div>
             )}
 
-            {/* {q !== '' && data.length !== 0 && <ShowCountry {...info} />} */}
+            {q !== '' && data.length !== 0 && (
+                <div className='card mb-3 mt-2 bg-dark'>
+                    <div className='row g-0 d-flex justify-content-sm-center'>
+                        <ShowCountry {...data[0]} />
+                    </div>
+                </div>
+            )}
         </form>
     );
 };
