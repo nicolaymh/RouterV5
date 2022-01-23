@@ -1,5 +1,4 @@
-import { useContext
- } from 'react';
+import { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { AuthContext } from '../context/Context';
 import { useForm } from '../hooks/useForm';
@@ -22,7 +21,6 @@ export const SearchCountry = ({ history }) => {
 
     const handleSearchCountry = (e) => {
         e.preventDefault();
-        // console.log(q);
 
         if (q === country) {
             return;
@@ -32,17 +30,13 @@ export const SearchCountry = ({ history }) => {
         history.push(`?q=${country}`);
     };
 
-    // console.log('Data:');
-    // console.log(data);
-    // console.log('----------');
-
     return (
         <form
             onSubmit={handleSearchCountry}
-            className='row g-3 d-flex justify-content-center mt-1 border bg-light'
+            className='row g-3 d-flex justify-content-center mt-0 border bg-light'
         >
             <div className='col-auto text-info'>
-                <h4>Country</h4>
+                <h4 className='my-auto'>Country</h4>
             </div>
             <div className='col-auto'>
                 <input
@@ -50,7 +44,7 @@ export const SearchCountry = ({ history }) => {
                     autoComplete='off'
                     name='country'
                     value={country}
-                    className='form-control'
+                    className='form-control text-sm-start text-center'
                     placeholder='Find country'
                     type='text'
                 />
@@ -70,7 +64,7 @@ export const SearchCountry = ({ history }) => {
 
             {q !== '' && data.length === 0 && (
                 <div className='alert alert-danger text-center'>
-                    No country found by name xxx:{' '}
+                    No country found by name:{' '}
                     <span className='fw-bolder'>{q}</span>
                 </div>
             )}

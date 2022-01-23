@@ -1,13 +1,13 @@
 import React, { createContext, useEffect, useReducer, useState } from 'react';
 import { axiosGetContinents } from '../helpers/axiosGetContinents';
-import { initInfoCountry } from '../helpers/initInfoCountry';
-import { initUser } from '../helpers/initUser';
+import { initInfoCountry } from '../getLocalStorage/initInfoCountry';
+import { initUser } from '../getLocalStorage/initUser';
 import { useAxios } from '../hooks/useAxios';
+import { continentReducer } from '../reducers/continentReducer';
+import { countryReducer } from '../reducers/countryReducer';
+import { userReducer } from '../reducers/userReducer';
 import { typesContinent } from '../Types/typesContinent';
 import { typesCountry } from '../Types/typesCountry';
-import { continentReducer } from './continentReducer';
-import { countryReducer } from './countryReducer';
-import { userReducer } from './userReducer';
 
 const AuthContext = createContext();
 
@@ -79,11 +79,6 @@ const AuthProvider = ({ children }) => {
 
             //* Guardar consulta de pais del componente SearchCountry.js
             localStorage.setItem('infoCountry', JSON.stringify(infoCountry));
-
-            // console.log('-----------------------');
-            // console.log(response?.data);
-            // console.log(countryFetching);
-            // console.log('-----------------------');
 
             if (response?.data) {
                 dispatchCountryFetching({

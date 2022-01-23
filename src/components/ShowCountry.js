@@ -11,7 +11,7 @@ export const ShowCountry = ({
 }) => {
     return (
         <>
-            <div className='col-md-4 my-auto animate__animated animate__slideInLeft my-auto'>
+            <div className='col-md-4 my-md-auto mt-1 animate__animated animate__slideInLeft my-auto'>
                 <img
                     src={flags?.svg}
                     className='img-fluid rounded-start border border-warning'
