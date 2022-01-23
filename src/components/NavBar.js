@@ -15,13 +15,16 @@ export const NavBar = () => {
     };
 
     return (
-        <div className='container mb-0'>
+        <div
+            className='container mb-0'
+            style={{ position: 'sticky', top: '0', zIndex: '1' }}
+        >
             <Navbar
                 collapseOnSelect
                 expand='md'
                 bg='dark'
                 variant='dark'
-                className='border border-4 border-info'
+                className='border-bottom border-2 border-info'
             >
                 <Navbar.Toggle aria-controls='responsive-navbar-nav' />
                 <Navbar.Collapse>
