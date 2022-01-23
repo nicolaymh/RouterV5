@@ -3,7 +3,7 @@ import { AuthContext } from '../context/Context';
 import { typesUser } from '../Types/typesUser';
 import { useForm } from '../hooks/useForm';
 
-const Login = () => {
+const Login = ({ history }) => {
     const [stateAlert, setStateAlert] = useState(false);
 
     const { dispatchUser } = useContext(AuthContext);
@@ -18,12 +18,17 @@ const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault();
 
+        //* Enviando a la ultima routa visitada de la aplicacion enel ultimo ingreso.
+        const lastPath = localStorage.getItem('lastRoute') || '/';
+
         if (!name.trim().length) {
             return setStateAlert(true);
         } else {
             setStateAlert(false);
             dispatchUser({ type: typesUser.login, payload: { name: name } });
         }
+
+        history.replace(lastPath);
     };
 
     return (

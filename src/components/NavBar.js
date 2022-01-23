@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, NavLink, useHistory } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../context/Context';
 import { typesUser } from '../Types/typesUser';
 
@@ -8,11 +8,7 @@ import { Navbar } from 'react-bootstrap';
 export const NavBar = () => {
     const { user, dispatchUser } = useContext(AuthContext);
 
-    const history = useHistory();
-
     const handleLogout = () => {
-        history.replace('/');
-
         dispatchUser({
             type: typesUser.logout,
         });
