@@ -10,7 +10,7 @@ const RouterV5 = () => {
     const { user } = useContext(AuthContext);
 
     return (
-        <div className='container my-auto py-0'>
+        <div className='container my-auto py-0 mx-0'>
             <HashRouter>
                 <Switch>
                     <PublicRouter

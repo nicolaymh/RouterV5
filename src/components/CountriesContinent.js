@@ -32,7 +32,7 @@ export const CountriesContinent = () => {
     return state ? (
         <ErrorContinents />
     ) : (
-        <div className='container mt-2 bg-dark'>
+        <div className='container mt-0 bg-dark'>
             <h4 className='text-info text-center fw-lighter fst-italic pt-2'>
                 {stateContinent[0]?.continent} Countries:
                 <span className='text-light'>

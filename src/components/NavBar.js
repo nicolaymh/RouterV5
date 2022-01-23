@@ -15,8 +15,14 @@ export const NavBar = () => {
     };
 
     return (
-        <div className='container px-1 mb-0'>
-            <Navbar collapseOnSelect expand='md' bg='dark' variant='dark'>
+        <div className='container mb-0'>
+            <Navbar
+                collapseOnSelect
+                expand='md'
+                bg='dark'
+                variant='dark'
+                className='border border-4 border-info'
+            >
                 <Navbar.Toggle aria-controls='responsive-navbar-nav' />
                 <Navbar.Collapse>
                     <nav className='navbar-nav'>
@@ -46,7 +52,7 @@ export const NavBar = () => {
                     </nav>
                 </Navbar.Collapse>
 
-                <div className='text-info d-flex justify-content-center me-1'>
+                <div className='text-info d-flex justify-content-end ms-auto me-1'>
                     <h6 className='me-2 m-auto text-capitalize'>{user.name}</h6>
                     <button
                         onClick={handleLogout}

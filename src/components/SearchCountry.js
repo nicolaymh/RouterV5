@@ -33,7 +33,7 @@ export const SearchCountry = ({ history }) => {
     return (
         <form
             onSubmit={handleSearchCountry}
-            className='row g-3 d-flex justify-content-center mt-0 border bg-light'
+            className='mx-0 row g-3 d-flex justify-content-center mt-0 border bg-light'
         >
             <div className='col-auto text-info'>
                 <h4 className='my-auto'>Country</h4>
