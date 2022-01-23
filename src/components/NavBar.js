@@ -3,6 +3,8 @@ import { Link, NavLink, useHistory } from 'react-router-dom';
 import { AuthContext } from '../context/Context';
 import { typesUser } from '../Types/typesUser';
 
+import { Navbar } from 'react-bootstrap';
+
 export const NavBar = () => {
     const { user, dispatchUser } = useContext(AuthContext);
 
@@ -17,32 +19,38 @@ export const NavBar = () => {
     };
 
     return (
-        <nav className='navbar navbar-expand navbar-dark bg-dark'>
-            <div className='container'>
-                <div className='navbar-nav'>
-                    <Link className='navbar-brand m-auto p-2' to='/continents'>
-                        Home
-                    </Link>
-                    <NavLink
-                        activeClassName='text-info fs-5'
-                        className='nav-item nav-link m-auto px-2'
-                        exact
-                        to='/continents'
-                    >
-                        Continents
-                    </NavLink>
+        <div className='container'>
+            <Navbar collapseOnSelect expand='md' bg='dark' variant='dark'>
+                <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+                <Navbar.Collapse>
+                    <nav className='navbar-nav'>
+                        <Link
+                            className='navbar-brand m-auto p-2'
+                            to='/continents'
+                        >
+                            Home
+                        </Link>
+                        <NavLink
+                            activeClassName='text-info fs-5'
+                            className='nav-item nav-link m-auto px-2'
+                            exact
+                            to='/continents'
+                        >
+                            Continents
+                        </NavLink>
 
-                    <NavLink
-                        activeClassName='text-info fs-5'
-                        className='nav-item nav-link m-auto px-2'
-                        exact
-                        to='/searchCountry'
-                    >
-                        Search
-                    </NavLink>
-                </div>
+                        <NavLink
+                            activeClassName='text-info fs-5'
+                            className='nav-item nav-link m-auto px-2'
+                            exact
+                            to='/searchCountry'
+                        >
+                            Search
+                        </NavLink>
+                    </nav>
+                </Navbar.Collapse>
 
-                <div className='d-flex align-items-center text-info'>
+                <div className='text-info d-flex justify-content-center me-1'>
                     <h6 className='me-2 m-auto text-capitalize'>{user.name}</h6>
                     <button
                         onClick={handleLogout}
@@ -51,7 +59,7 @@ export const NavBar = () => {
                         Log-Out
                     </button>
                 </div>
-            </div>
-        </nav>
+            </Navbar>
+        </div>
     );
 };
