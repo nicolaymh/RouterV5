@@ -12,21 +12,26 @@ import { typesCountry } from '../Types/typesCountry';
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+    //!---------------------------
+    //! Manejo de autenticacion:
+    //!---------------------------
     //* Reducer para manejar la autenticacion.
     const [user, dispatchUser] = useReducer(userReducer, {}, initUser);
 
+    //* UseEffect que me guarda si el usuario esta logged o no en el localStorage.
+    useEffect(() => {
+        localStorage.setItem('user', JSON.stringify(user));
+    }, [user]);
+    //!-----------------------------------------------------------------
+    //!-----------------------------------------------------------------
+
+    //!-------------------------------------------------
+    //! Manejo del Router Continents:
+    //!-------------------------------------------------
     //* Reducer para manejar los continentes.
     const [stateContinent, dispatchContinent] = useReducer(
         continentReducer,
         [],
-    );
-
-    //* Reducer para manejar la consulta por pais a la Api:
-    const [countryFetching, dispatchCountryFetching] = useReducer(
-        countryReducer,
-        {
-            data: [],
-        },
     );
 
     //* useState que me guarda la data de la api REST Countries.
@@ -34,14 +39,6 @@ const AuthProvider = ({ children }) => {
 
     //* useState para guardar lo seleccionado en el select del componente (CountriesContinent.js).
     const [selected, setSelected] = useState('Africa');
-
-    //* useState que me guarda lo ingresado en el formulario en el componente SearchCountry al pulsar el boton:
-    const [infoCountry, setInfoCountry] = useState(initInfoCountry);
-
-    //* UseEffect que me guarda si el usuario esta logged o no.
-    useEffect(() => {
-        localStorage.setItem('user', JSON.stringify(user));
-    }, [user]);
 
     //* useEffect que me consume la api de REST Countries solo al iniciar la aplicacion.
     useEffect(
@@ -69,15 +66,31 @@ const AuthProvider = ({ children }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         [],
     );
+    //!-----------------------------------------------------------------
+    //!-----------------------------------------------------------------
 
-    //* useEffect que se ejecuta cada vez que se busca un pais en el componente SearchCountry.js..
+    //!-------------------------------------------------
+    //! Manejo del Router Search:
+    //!-------------------------------------------------
+    //* Reducer para manejar la consulta por pais a la Api:
+    const [countryFetching, dispatchCountryFetching] = useReducer(
+        countryReducer,
+        {
+            data: [],
+        },
+    );
+
+    //* useState que me guarda lo ingresado en el formulario en el componente SearchCountry al pulsar el boton.
+    const [infoCountry, setInfoCountry] = useState(initInfoCountry);
+
+    //* useEffect que se ejecuta cada vez que se busca un pais en el componente SearchCountry.js.
     useEffect(() => {
         async function LoadCountry() {
             const response = await useAxios(
                 `https://restcountries.com/v3.1/name/${infoCountry}?fullText=true`,
             );
 
-            //* Guardar consulta de pais del componente SearchCountry.js
+            //* Guardar consulta de pais del componente SearchCountry.js en el localStorage.
             localStorage.setItem('infoCountry', JSON.stringify(infoCountry));
 
             if (response?.data) {
@@ -94,7 +107,12 @@ const AuthProvider = ({ children }) => {
 
         LoadCountry();
     }, [infoCountry]);
+    //!-----------------------------------------------------------------
+    //!-----------------------------------------------------------------
 
+    //?-----------------------------------------------------------------
+    //? Estado generales a enviar mediante el Context.
+    //?-----------------------------------------------------------------
     const data = {
         user,
         dispatchUser,
@@ -107,6 +125,8 @@ const AuthProvider = ({ children }) => {
         infoCountry,
         setInfoCountry,
     };
+    //?-----------------------------------------------------------------
+    //?-----------------------------------------------------------------
 
     return <AuthContext.Provider value={data}>{children}</AuthContext.Provider>;
 };
