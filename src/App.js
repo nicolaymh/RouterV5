@@ -8,7 +8,7 @@ import 'animate.css/animate.css';
 
 export const App = () => {
     return (
-        <div>
+        <div className=''>
             <AuthProvider>
                 <RouterV5 />
             </AuthProvider>
