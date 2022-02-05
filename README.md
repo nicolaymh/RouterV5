@@ -2,7 +2,7 @@
 
 ### Features:
 
-_This is an application that allows us to search for information about countries. We can search for countries by continent or individually through a form but we must write their exact name. In this application a login is simulated which is saved in the local storage and the last visited page is also remembered_
+_This is an application that allows us to search for information about countries. We can search for countries by continent or individually through a form but we must write their exact name. In this application a login is simulated which is saved in the local storage and the last visited page is also remembered._
 
 ---
 
